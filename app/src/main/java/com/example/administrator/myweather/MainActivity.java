@@ -72,14 +72,16 @@ public class MainActivity extends AppCompatActivity {
                cityMap.keySet() ));
         province_spinner.setAdapter(provinceAdapter);
         city_spinner= (Spinner) choose_layout.findViewById(R.id.city_spinner);
-        province_spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        province_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            String  province_name=province_spinner.getSelectedItem().toString();
-              ArrayAdapter<String> cityAdapter=new ArrayAdapter<String>(
-                      seft,R.layout.simple_list_item,cityMap.get(province_name));
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String  province_name=province_spinner.getSelectedItem().toString();
+                ArrayAdapter<String> cityAdapter=new ArrayAdapter<String>(
+                        seft,R.layout.simple_list_item,cityMap.get(province_name));
                 city_spinner.setAdapter(cityAdapter);
             }
+
             public void onNothingSelected(AdapterView<?>parent){
 
             }
